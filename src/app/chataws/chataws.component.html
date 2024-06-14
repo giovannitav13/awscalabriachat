@@ -1,0 +1,16 @@
+<div class="chat-container">
+    <div class="messages-container" #scrollContainer>
+        <div *ngFor="let msg of messages" class="message">
+            <div *ngIf="username === msg.author" style="text-align: right">
+                you: {{ msg.message }}
+            </div>
+            <div *ngIf="username !== msg.author">
+                {{ msg.author }}: <br />{{ msg.message }}
+            </div>
+        </div>
+    </div>
+    <div class="input-container">
+        <input [(ngModel)]="message" placeholder="Enter message" (keyup.enter)="sendMessage()" />
+        <button (click)="sendMessage()">Send</button>
+    </div>
+</div>

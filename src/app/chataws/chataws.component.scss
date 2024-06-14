@@ -1,0 +1,69 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  background-color: #ffffff; /* Cambiato a bianco */
+  font-family: 'Arial', sans-serif; /* Font moderno */
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f7f9fc; /* Colore di sfondo chiaro e moderno */
+}
+
+.message {
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #eef5ff; /* Colore di sfondo più moderno */
+  border-radius: 8px;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Aggiunto ombra per profondità */
+}
+
+.input-container {
+  display: flex;
+  padding: 15px;
+  background-color: #f0f4f8; /* Colore di sfondo leggermente diverso per distinzione */
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-right: 10px;
+  font-size: 16px; /* Font size per maggiore leggibilità */
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a90e2; /* Colore di sfondo moderno */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px; /* Font size per maggiore leggibilità */
+}
+
+button:hover {
+  background-color: #357abd; /* Colore di sfondo moderno al passaggio del mouse */
+}
+
+@media (max-width: 600px) {
+  .input-container {
+    flex-direction: column;
+  }
+
+  input {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  button {
+    width: 100%;
+  }
+}
