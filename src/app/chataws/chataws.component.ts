@@ -19,8 +19,7 @@ export class ChatawsComponent implements OnInit, AfterViewChecked {
 
     message: string = '';
     messages: any[] = [];
-    // url: string = 'wss://7zok4j6es2.execute-api.us-east-1.amazonaws.com/dev/';
-    url: string = 'wss://s3eq3bc477.execute-api.us-east-1.amazonaws.com/production/';
+    url: string = 'wss://<API_ID>.execute-api.<API_ID>.amazonaws.com/<stage>/';
     username: string | null = '';
 
     constructor(private webSocketService: WebSocketService, @Inject(PLATFORM_ID) private platformId: Object) { }
@@ -28,10 +27,10 @@ export class ChatawsComponent implements OnInit, AfterViewChecked {
     ngOnInit() {
         if (isPlatformBrowser(this.platformId)) {
             this.username = localStorage.getItem('username');
-            if(!this.username) this.username = prompt('Inserisci il tuo nome');
+            if(!this.username) this.username = prompt('Your name?');
             if(!this.username) //refresh
                 window.location.reload();
-            this.messages = [{ "author": "Robot", "message": `Benvenuto ${this.username} !` }];
+            this.messages = [{ "author": "Robot", "message": `welcome  ${this.username} !` }];
         }
         this.webSocketService.connect(this.url).subscribe((event: MessageEvent) => {
             const inmsg = JSON.parse(event.data);
